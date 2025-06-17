@@ -1,0 +1,423 @@
+{
+	"info": {
+		"_postman_id": "d3b12a6c-5c96-4348-8d91-a4801c4130b7",
+		"name": "e-ticket-transport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45442995"
+	},
+	"item": [
+		{
+			"name": "transport",
+			"item": [
+				{
+					"name": "getAllTrans",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_id\": \"684c257791922418e8f2e2e3\",\n    \"from\": \"Yaponiyadan\",\n    \"to\": \"Tashkent\",\n    \"price\": 200,\n    \"departure\": \"2025-06-13T13:19:51.991Z\",\n    \"arrival\": \"2025-07-13T13:22:51.991Z\"\n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/transport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTransById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/transport/684c257791922418e8f2e2e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transport",
+								"684c257791922418e8f2e2e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postTrans",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_type\": \"bus\",\n    \"class\": \"economy\",\n    \"seat\": 40 \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/transport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transport"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchTrans",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_type\": \"train\",\n    \"class\": \"economy\",\n    \"seat\": 500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/transport/684c65c266f646b6bf681fab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transport",
+								"684c65c266f646b6bf681fab"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTrans",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/transport/684c65c266f646b6bf681fab",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"transport",
+								"684c65c266f646b6bf681fab"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ticket",
+			"item": [
+				{
+					"name": "getAllTicket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ticket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TicketById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/ticket/684c49c8d5f338581e6f99f2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ticket",
+								"684c49c8d5f338581e6f99f2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchTicket",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_id\": \"684c257791922418e8f2e2e3\",\n    \"from\": \"Xitoy\",\n    \"to\": \"Tashkent\",\n    \"price\": 200,\n    \"departure\": \"2025-06-13T13:19:51.991Z\",\n    \"arrival\": \"2025-07-13T13:22:51.991Z\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ticket/684c49c8d5f338581e6f99f2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ticket",
+								"684c49c8d5f338581e6f99f2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_id\": \"684c257791922418e8f2e2e3\",\n    \"from\": \"Yaponiyadan\",\n    \"to\": \"Tashkent\",\n    \"price\": 200,\n    \"departure\": \"2025-06-13T13:19:51.991Z\",\n    \"arrival\": \"2025-07-13T13:22:51.991Z\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/ticket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTicket",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transport_id\": \"684c257791922418e8f2e2e3\",\n    \"from\": \"Xitoy\",\n    \"to\": \"Tashkent\",\n    \"price\": 200,\n    \"departure\": \"2025-06-13T13:19:51.991Z\",\n    \"arrival\": \"2025-07-13T13:22:51.991Z\"\n    \n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/ticket/684c49c8d5f338581e6f99f2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"ticket",
+								"684c49c8d5f338581e6f99f2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "getAllAdmin",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postAdmin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"USmon\",\n    \"password\": \"dang!Dang7\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAdminById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"USmon\",\n    \"password\": \"dang!Dang7\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/684d3fada47e31db59819d85",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"684d3fada47e31db59819d85"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "patchAdmin",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"Aliy\",\n    \"password\": \"dang!Dang44\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/684d3fd1a47e31db59819d88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"684d3fd1a47e31db59819d88"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteAdmin",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/admin/684d3fd1a47e31db59819d88",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"admin",
+								"684d3fd1a47e31db59819d88"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
