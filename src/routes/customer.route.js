@@ -6,11 +6,10 @@ const router = express.Router()
 const controller = new CustomerController()
 
 router
-    .post('/', controller.createCustomer )
-    .get('/', controller.getAllCustomer)
-    .get('/:id', controller.getCustomerById)
-    .patch('/:id', controller.updateCustomer)
-    .delete('/:id', controller.deleteCustomer)
+    .post('/sign-up', controller.signUp)
+    .post('/sign-in', controller.signIn)
+    .post('/confirm-signin', controller.confirmSignIn)
+
 
 export default router;
 

@@ -285,15 +285,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"admin"
-							]
+							"raw": ""
 						}
 					},
 					"response": []
@@ -412,6 +404,98 @@
 							"path": [
 								"admin",
 								"684d3fd1a47e31db59819d88"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer",
+			"item": [
+				{
+					"name": "sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"toshpolatovkamoliddin612@gmail.com\",\n    \"phone_number\": \"+998974243366\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customer/sign-up",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sign-in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\n    \"email\": \"toshpolatovkamoliddin612@gmail.com\"\n\n }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customer/sign-in",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "confirm-signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\": \"toshpolatovkamoliddin612@gmail.com\",\n     \"otp\":\"552421\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/customer/confirm-signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"customer",
+								"confirm-signin"
 							]
 						}
 					},
