@@ -42,7 +42,7 @@ export class CustomerController {
       const accessToken = await token.generateAccessToken(payload);
       const refreshToken = await token.generateRefreshToken(payload);
 
-      res.cookie('refreshTokenPatient', refreshToken, {
+      res.cookie('refreshTokenCustomer', refreshToken, {
         httpOnly: true,
         secure: true,
         maxAge: 15 * 24 * 60 * 60 * 1000 // 15 kun
@@ -115,7 +115,7 @@ export class CustomerController {
     const accessToken = await token.generateAccessToken(payload);
     const refreshToken = await token.generateRefreshToken(payload);
 
-    res.cookie('refreshTokenPatient', refreshToken, {
+    res.cookie('refreshTokenCustomer', refreshToken, {
       httpOnly: true,
       secure: true,
       maxAge: 15 * 24 * 60 * 60 * 1000 // 15 kun
@@ -129,6 +129,54 @@ export class CustomerController {
     return handleError(res, error);
   }
 }
+
+  async newAccessToken(req,res){
+    try{
+      const refreshToken = req.cookies?.refreshTokenCustomer;
+      if(!refreshToken){
+        return handleError(res, 'Refresh token epxired', 400);
+      }
+      const decodedToken = await token.verifyToken(refreshToken, config.REFRESH_TOKEN_KEY)
+      if(!decodedToken){
+        return handleError(res, 'Invalid token', 400);
+      }
+      const customer = await Customer.findById(decodedToken.id)
+      if(!customer){
+        return handleError(res, 'Customer not found', 404)
+      }
+      const payload = {id: customer._id};
+      const accessToken = await token.generateAccessToken(payload);
+      return successRes(res, {
+        token: accessToken
+      })
+    }catch(error){
+      return handleError(res, error)
+    }
+  }
+
+  async logOut(req, res){
+    try{
+      const refreshToken = req.cookies?.refreshTokenCustomer;
+      if(!refreshToken) {
+        return handleError(res, 'Refresh token epxired', 400);
+      }
+      const decodedToken = await token.verifyToken(refreshToken, config.ACCESS_TOKEN_KEY);
+      if(!decodedToken){
+        return  handleError(res, 'Invalid token', 400)
+      }
+      const customer = await Customer.findById(decodedToken.id);
+      if(!customer){
+        return handleError (res, 'Customer not found', 404);
+      }
+      res.clearCookie('refreshTokenCustomer');
+      return successRes(res, {})
+
+    }catch(error){
+      return handleError(res, error)
+    }
+  }
+
+
 
 }
 
