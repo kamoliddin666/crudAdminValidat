@@ -13,6 +13,7 @@ const app = express()
 const PORT = Number(process.env.PORT)
 
 app.use(express.json())
+app.use(cookieParser())
 await connectDB()
 await createSuperAdmin()
 
@@ -20,7 +21,6 @@ app.use('/transport', transportRouter)
 app.use('/ticket', ticketRouter)
 app.use('/admin', adminRouter)
 app.use('/customer', customerRouter)
-app.use(cookieParser())
 
 app.listen(PORT, ()=>{
     console.log(`Server running on port: ${PORT}`)

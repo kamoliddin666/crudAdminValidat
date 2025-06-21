@@ -133,8 +133,9 @@ export class CustomerController {
   async newAccessToken(req,res){
     try{
       const refreshToken = req.cookies?.refreshTokenCustomer;
+      console.log(req.cookies)
       if(!refreshToken){
-        return handleError(res, 'Refresh token epxired', 400);
+        return handleError(res, 'Refresh token expired', 400);
       }
       const decodedToken = await token.verifyToken(refreshToken, config.REFRESH_TOKEN_KEY)
       if(!decodedToken){
