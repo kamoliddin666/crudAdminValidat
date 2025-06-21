@@ -161,7 +161,7 @@ export class CustomerController {
       if(!refreshToken) {
         return handleError(res, 'Refresh token epxired', 400);
       }
-      const decodedToken = await token.verifyToken(refreshToken, config.ACCESS_TOKEN_KEY);
+      const decodedToken = await token.verifyToken(refreshToken, config.REFRESH_TOKEN_KEY);
       if(!decodedToken){
         return  handleError(res, 'Invalid token', 400)
       }
@@ -169,15 +169,15 @@ export class CustomerController {
       if(!customer){
         return handleError (res, 'Customer not found', 404);
       }
-      res.clearCookie('refreshTokenCustomer');
+      res.clearCookie('refreshTokenCustomer',{
+        httpOnly:true,
+        secure:true
+      });
       return successRes(res, {})
 
     }catch(error){
       return handleError(res, error)
     }
   }
-
-
-
 }
 
